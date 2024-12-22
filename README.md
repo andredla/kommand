@@ -28,9 +28,9 @@ Tested on Linux, Kubuntu KDE plasma 5.
 
 # Images
 
-![alt text](https://raw.githubusercontent.com/andredla/kommand/master/KommandConfig.png)
+![alt text](https://raw.githubusercontent.com/andredla/kommand/main/KommandConfig.png)
 
-![alt text](https://raw.githubusercontent.com/andredla/kommand/master/Kommand.png)
+![alt text](https://raw.githubusercontent.com/andredla/kommand/main/Kommand.png)
   
 # How it works
 When you launch the Kommand icon inside the system tray, you wait for a sound and it will be listening for the Command, then you say the word you configure inside the Command field followed by the Word field and wait, then the system will run the Execute field and say the Talk field. If you say something that not match with any command, nothing will happend and the sound will play again and wait for the next command, the output of the text you speak will appear at KDE Klipboard. 
