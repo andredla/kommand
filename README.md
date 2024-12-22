@@ -28,6 +28,7 @@ Tested on Linux, Kubuntu KDE plasma 5.
 
 # Images
 ![alt text](https://raw.githubusercontent.com/andredla/kommand/master/KommandConfig.png)
+
 ![alt text](https://raw.githubusercontent.com/andredla/kommand/master/Kommand.png)
   
 # How it works
