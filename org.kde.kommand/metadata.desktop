@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Kommand
+Icon=audio-recorder-off
+Type=Service
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+X-KDE-ServiceTypes=Plasma/Applet
+X-KDE-PluginInfo-Author=André Lemos
+X-KDE-PluginInfo-Email=andre.dla@gmail.com
+X-KDE-PluginInfo-Name=org.kde.kommand
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Category=Windows and Tasks
+X-Plasma-StandAloneApp=true
+X-Plasma-NotificationArea=true
+X-Plasma-NotificationAreaCategory=SystemServices
