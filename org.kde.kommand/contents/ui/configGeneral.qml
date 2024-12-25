@@ -46,21 +46,18 @@ ColumnLayout {
 		id: generalConfigPage
 		anchors.fill: parent
 
-		RowLayout {
-			Kirigami.FormData.label: i18n("Local Path:")
+		Kirigami.Separator {
+			Kirigami.FormData.label: i18nc("@title:group", "Global")
+			Kirigami.FormData.isSection: true
 		}
 
 		RowLayout {
-			Kirigami.FormData.label: i18n("path:")
+			Kirigami.FormData.label: i18n("Local Path:")
 			QtControls.TextField {
 				id: localPath
 				enabled: true
 				visible: true
 			}
-		}
-
-		Item {
-			Kirigami.FormData.isSection: true
 		}
 
 		RowLayout {
@@ -140,12 +137,9 @@ ColumnLayout {
 			}
 		}
 
-		Item {
+		Kirigami.Separator {
+			Kirigami.FormData.label: i18nc("@title:group", "Command group")
 			Kirigami.FormData.isSection: true
-		}
-
-		RowLayout {
-			Kirigami.FormData.label: i18n("Command:")
 		}
 
 		RowLayout {
@@ -160,12 +154,9 @@ ColumnLayout {
 			}
 		}
 
-		Item {
+		Kirigami.Separator {
+			Kirigami.FormData.label: i18nc("@title:group", "Terminal group")
 			Kirigami.FormData.isSection: true
-		}
-
-		RowLayout {
-			Kirigami.FormData.label: i18n("Terminal:")
 		}
 
 		RowLayout {
