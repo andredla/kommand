@@ -9,6 +9,7 @@ Tested on Linux, Kubuntu KDE plasma 5.
 - Paplay is used to play the sound
 - Python 3
 - speech_recognition package, version used SpeechRecognition 3.10.4
+- xdotool needed for terminal command
 
 # Instalation guide
 - Unzip the file
