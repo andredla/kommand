@@ -129,6 +129,7 @@ class MainWindow(qtw.QWidget):
 			json_arr["data"].append(obj)
 		data = json.dumps(json_arr)
 		self.bdSaveType(self.type, data, self.command.text())
+		os.system("rm " + os.path.join(localPath, "audio", self.type, "*"))
 		return True
 
 	def load(self):

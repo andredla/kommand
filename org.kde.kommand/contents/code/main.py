@@ -16,7 +16,7 @@ sound = "/usr/share/sounds/ubuntu/notifications/Positive.ogg"
 dev = False
 flag_command = False
 
-conn = sqlite3.connect(localPath+"/db.sqlite")
+conn = sqlite3.connect(os.path.join(localPath, "db.sqlite"))
 cur = conn.cursor()
 
 def dbGetType(type):
@@ -31,9 +31,15 @@ def commandEncodeDecode(data, encdec):
 		return base64.b64decode(data).decode("ascii")
 	return True
 
-def talk(command, out):
+def talk(command, row):
 	if flag_command:
-		os.system("echo '"+out+"' | python3 "+os.path.join(localPath, "talk.py")+" '"+lang+"'")
+		audioPath = os.path.join(localPath, "audio", row["type"], str(row["idx"])+".mp3")
+		if os.path.exists(audioPath):
+			os.system("paplay --volume="+str(65536 * 50 / 100)+" "+audioPath)
+		else:
+			os.system("echo '"+row["talk"]+"' | python3 "+os.path.join(localPath, "talk.py")+" '"+lang+"'")
+			if row["idx"] >= 0:
+				os.system("mv "+os.path.join(localPath, "speak.mp3")+" "+audioPath)
 	return True
 
 def clearCommand(command, arr):
@@ -55,8 +61,10 @@ def commandOk(command_in, type):
 			return row
 	if command_data:
 		data = json.loads(command_data)
-		for row in data["data"]:
-			if(command_out == row["word"]):
+		for idx, row in enumerate(data["data"]):
+			if(command_out.lower() == row["word"].lower()):
+				row["idx"] = idx
+				row["type"] = type
 				return row
 	row = None
 	return row
@@ -71,14 +79,14 @@ def findCommand(cmd):
 		if row:
 			flag_command = True
 			if(row["talk"] != ""):
-				talk(command_out, row["talk"])
+				talk(command_out, row)
 			os.system(commandEncodeDecode(row["command"], "decode"))
 	if flag_command == False:
 		row = commandOk(command_in, "terminal")
 		if row:
 			flag_command = True
 			if(row["talk"] != ""):
-				talk(command_out, row["talk"])
+				talk(command_out, row)
 			proc = subprocess.Popen("konsole", shell=True)
 			time.sleep(1)
 			os.system("xdotool type \""+commandEncodeDecode(row["command"], "decode")+"\"")
